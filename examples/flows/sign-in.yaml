@@ -1,0 +1,12 @@
+# Set BUGMOLE_FLOW_SECRET_APP_PASSWORD on the machine or CI job that runs this flow.
+url: https://staging.example.com/login
+name: sign-in
+---
+- launchApp
+- tapOn: "Email"
+- inputText: "qa@example.com"
+- tapOn: "Password"
+- inputText: "{{secret.APP_PASSWORD}}"
+- tapOn: "Sign in"
+- extendedWaitUntil: { visible: "Dashboard", timeout: 20000 }
+- takeScreenshot: "signed-in"

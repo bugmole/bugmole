@@ -1,0 +1,14 @@
+pipeline {
+  agent any
+  environment {
+    BUGMOLE_API_KEY = credentials('bugmole-api-key')
+  }
+  stages {
+    stage('Bugmole') {
+      steps {
+        sh 'npm install -g @bugmole/cli'
+        sh 'bugmole --mode run --plan-id "$BUGMOLE_PLAN_ID" --browsers chromium,firefox,webkit'
+      }
+    }
+  }
+}

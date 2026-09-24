@@ -1,0 +1,3 @@
+# ~/.codex/config.toml or .codex/config.toml
+[mcp_servers.bugmole]
+url = "https://api.bugmole.com/mcp"

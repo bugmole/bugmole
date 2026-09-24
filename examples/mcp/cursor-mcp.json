@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "bugmole": { "url": "https://api.bugmole.com/mcp" }
+  }
+}

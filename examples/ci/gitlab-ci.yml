@@ -1,0 +1,6 @@
+# Add BUGMOLE_API_KEY (masked) and BUGMOLE_PLAN_ID under Settings → CI/CD → Variables.
+bugmole:
+  image: mcr.microsoft.com/playwright:v1.55.0-noble
+  script:
+    - npm install -g @bugmole/cli
+    - bugmole --mode run --plan-id "$BUGMOLE_PLAN_ID" --browsers chromium,firefox,webkit

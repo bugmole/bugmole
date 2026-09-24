@@ -1,0 +1,12 @@
+# Signs up with a disposable inbox and follows the confirmation link.
+url: https://staging.example.com/signup
+name: sign-up-with-email
+---
+- launchApp
+- requestTempEmail
+- tapOn: "Email"
+- inputText: "{{tempEmail}}"
+- tapOn: "Create account"
+- assertVisible: "Check your email"
+- openEmailLink
+- assertVisible: "Welcome"

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or help
+    url: https://discord.gg/q9k5ngWKQ
+    about: Ask the team and other users on Discord.
+  - name: Security vulnerability
+    url: https://github.com/bugmole/bugmole/blob/main/SECURITY.md
+    about: Please report it privately by email.
+  - name: Docs
+    url: https://bugmole.com/docs/
+    about: Guides and reference.

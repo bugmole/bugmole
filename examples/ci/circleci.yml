@@ -1,0 +1,13 @@
+# .circleci/config.yml. Add BUGMOLE_API_KEY and BUGMOLE_PLAN_ID under Project Settings → Environment Variables.
+version: 2.1
+jobs:
+  bugmole:
+    docker:
+      - image: cimg/node:22.0
+    steps:
+      - checkout
+      - run: npm install -g @bugmole/cli
+      - run: bugmole --mode run --plan-id "$BUGMOLE_PLAN_ID" --browsers chromium,firefox,webkit
+workflows:
+  test:
+    jobs: [bugmole]

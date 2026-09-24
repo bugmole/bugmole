@@ -1,0 +1,17 @@
+# .github/workflows/bugmole.yml
+# Secrets: BUGMOLE_API_KEY (from `bugmole api-key create`). Variables: BUGMOLE_PLAN_ID.
+name: Bugmole
+on: [pull_request]
+jobs:
+  bugmole:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g @bugmole/cli
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - run: bugmole --mode run --plan-id "$BUGMOLE_PLAN_ID" --browsers chromium,firefox,webkit
+        env:
+          BUGMOLE_API_KEY: ${{ secrets.BUGMOLE_API_KEY }}
+          BUGMOLE_PLAN_ID: ${{ vars.BUGMOLE_PLAN_ID }}

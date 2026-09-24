@@ -1,0 +1,9 @@
+url: https://staging.example.com/projects
+name: create-project
+---
+- launchApp
+- tapOn: "New project"
+- tapOn: "Project name"
+- inputText: "My Project"
+- tapOn: "Create"
+- assertVisible: "Project created"
